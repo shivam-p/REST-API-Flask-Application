@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Project</title>
+
+</head>
+<body>
+<style>
+
+    .dv,h1
+    {
+        margin-left:100px;
+    }
+    .maindiv
+    {
+       width:70%;
+       height:300px;
+       margin-left:300px;
+       border:1px solid black;
+    }
+    input[type=text],input[type=email]
+    {
+      width:200px;
+      height:30px;
+    }
+
+    input[type=submit]
+    {
+      width:110px;
+      height:30px;
+      background-color:#ed7777;
+    }
+    .subdiv
+    {
+      width:40%;
+      height:300px;
+      float:left;
+      border-left: 1px solid black;
+    }
+    #customers
+    {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #customers td, #customers th
+   {
+      border: 1px solid #ddd;
+      padding: 8px;
+   }
+
+   #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+   #customers tr:hover {background-color: #ddd;}
+
+   #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+    }
+    </style>
+
+
+<div class="maindiv">
+
+<div class="subdiv">
+    <h1>POST Method</h1>
+<form action="/main" method="post">
+    <div class="dv">
+    Name: <input type="text" name="name"></input></br>
+    </br>Email: <input type="email" name="email"></input></br>
+    </br><input type="submit" value="Add User"></input>
+        </div>
+</form>
+    </div>
+<div class="subdiv">
+    <h1>GET Method</h1>
+<form action="/users" method="get">
+    <div class="dv">
+        <input type="submit" value="Show Users"></input>
+        <table id="customers" border="1">
+    {% for user in usersDetails %}
+        </br><tr>
+        <td> {{user[0]}} </td>
+        <td> {{user[1]}} </td>
+    </tr>
+    {% endfor %}
+</table>
+    </div>
+</form>
+    </div>
+</div>
+
+<div  class="maindiv">
+    <div class="subdiv">
+    <h1>DELETE Method</h1>
+</br> <form action="/delete" method="post">
+        <div class="dv">
+        Name: <input type="text" name="delname"></input></br>
+        </br><input type="submit" value="Delete Users"></input>
+    </div>
+    </form>
+    </div>
+    <div class="subdiv">
+    <form action="/update" method="POST">
+        <div class="dv">
+    <h1>PUT Method</h1>
+    Old Name: <input type="text" name="oldname"></input></br>
+    </br>New Name: <input type="text" name="updatename"></input></br>
+    </br><input type="submit" value="Update Users"></input>
+    </div>
+    </form>
+    </div>
+</div>
+
+</body>
+</html>

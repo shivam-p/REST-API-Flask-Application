@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <script>
+        function myFunction() {
+            var password = document.getElementById("passw").value;
+            var enc = window.btoa(password);
+            document.getElementById("passw").value = enc;
+        }
+    </script>
+    <style>
+    input[type=submit]
+    {
+      width:110px;
+      height:30px;
+      background-color:#ed7777;
+      margin-left:100px;
+    }
+    input[type=text],input[type=password]
+    {
+      width:200px;
+      height:30px;
+    }
+    </style>
+</head>
+<body>
+    <h1>Login Here</h1>
+    <form action="/" method="post">
+        Username: <input type="text" name="username" id="user"></input></br>
+        </br>Password: <input type="password" name="password" id="passw" onchange="myFunction()"></input></br>
+    </br><input type="submit" value="Login"></input>
+    </form>
+</body>
+</html>
